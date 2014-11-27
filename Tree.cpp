@@ -4,8 +4,8 @@ using namespace std;
 
 Tree::Tree(char nm,char mnm, int mxr)
 {
-	Screen=new char *[maxrow];
-	for(int i=0;i<maxrow;i++)
+	Screen = new char* [maxrow];
+	for(int i = 0; i < maxrow; i++)
 		Screen[i]= new char[80];
     num = nm;
     maxrow = mxr;
