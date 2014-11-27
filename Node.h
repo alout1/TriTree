@@ -16,7 +16,6 @@ public:
     ~Node(); 
     void visit();
     void mark(char c);
-    void print();
     friend class Tree;
 }; // class Node
 

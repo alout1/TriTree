@@ -4,36 +4,37 @@
 #include "Node.h"
 
 #include <cmath>
-#include <random>
-#include <chrono>
+#include <cstdlib>
 
+using namespace std;
 
 class Node;
 
-
-class Tree
-{
+class Tree {
 private:
     int MidLeaves; // То, что надо посчитать - "количество средних листьев"
-    char UniqueMark;
-    Node** NewTree;
     Node* Root;
-    
-    char getNextMark() { if(UniqueMark == 'Z') UniqueMark = 'a'; return UniqueMark++; } 
-    void preOrderTraverse(Node *node);
+    char num, maxnum;
+    int maxrow, offset;
+    char** Screen;
+
+    void preOrderTraverse(Node* node);
     void inorderMarking(Node* node);
+    Node* makeNode(int depth);
+    void outNodes(Node* node,int r, int c);
 
     Tree(const Tree&) = delete;
     Tree& operator=(const Tree&) = delete;
-    
+
 public:
-    Tree(int);
+    Tree(char nm, char mnm, int mxr);
     ~Tree();
-    void printMidLeaves() { std::cout << "Middle leaves = " << MidLeaves <<'\n'; }
-    void printTree() { Root->print(); } // http://stackoverflow.com/a/18669747
-    void traverse_preOrder();    
-    void mark_inOrder();
-    
+
+    void printMidLeaves() {std::cout << "Middle leaves = " << MidLeaves << '\n';}
+    void printTree();
+    void traversePreOrder();
+    void markInOrder();
+
 }; // class Tree
 
 #endif	/* TREE_H */
