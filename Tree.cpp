@@ -72,7 +72,7 @@ void Tree::outNodes(Node *node, int r, int c)
 	if(r<maxrow)
 	{
 		if(node->Left)
-			outNodes(node->Left, r+1, c-(offset>>r));
+			outNodes(node->Left, r+1, c-(offset>>r) + 1);
 		if(node->Middle)
 			outNodes(node->Middle, r+1, c);
 		if(node->Right)
